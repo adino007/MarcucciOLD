@@ -45,4 +45,11 @@ export default async function handleRequest(
   });
 }
 
+createContentSecurityPolicy({
+  connectSrc: [
+    // (ie. 'wss://<your-ngrok-domain>.app:*')
+    'wss://ngrok http --domain=ringtail-literate-firstly.ngrok-free.app:*',
+  ],
+});
+
 /** @typedef {import('@shopify/remix-oxygen').EntryContext} EntryContext */

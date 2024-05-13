@@ -42,27 +42,16 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
 
   return (
     <nav className={className} role="navigation">
-      {viewport === 'mobile' && (
-        <NavLink
-          end
-          onClick={closeAside}
-          prefetch="intent"
-          style={activeLinkStyle}
-          to="/"
-        >
-          Home
-        </NavLink>
-      )}
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
 
-        // if the url is internal, we strip the domain
         const url =
           item.url.includes('myshopify.com') ||
           item.url.includes(publicStoreDomain) ||
           item.url.includes(primaryDomainUrl)
             ? new URL(item.url).pathname
             : item.url;
+
         return (
           <NavLink
             className="header-menu-item"
@@ -175,6 +164,24 @@ const FALLBACK_HEADER_MENU = {
       url: '/pages/about',
       items: [],
     },
+    {
+      id: 'gid://shopify/MenuItem/461609632800',
+      resourceId: null,
+      tags: [],
+      title: 'Women',
+      type: 'HTTP',
+      url: '/collections/women',
+      items: [],
+    },
+    {
+      id: 'gid://shopify/MenuItem/461609665568',
+      resourceId: null,
+      tags: [],
+      title: 'Accessories',
+      type: 'HTTP',
+      url: '/collections/accessories',
+      items: [],
+    },
   ],
 };
 
@@ -187,7 +194,7 @@ const FALLBACK_HEADER_MENU = {
 function activeLinkStyle({isActive, isPending}) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'black',
+    color: isPending ? 'grey' : 'white',
   };
 }
 

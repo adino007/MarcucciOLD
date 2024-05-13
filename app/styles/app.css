@@ -127,9 +127,11 @@ aside li {
 * components/Header
 * --------------------------------------------------
 */
+/* Header Styling */
 .header {
   align-items: center;
-  background: #fff;
+  background: #000000; /* Dark background for contrast */
+  color: #fff; /* Ensures all text in the header is white */
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;
@@ -138,30 +140,33 @@ aside li {
   z-index: 1;
 }
 
-.header-menu-mobile-toggle {
-  @media (min-width: 48em) {
-    display: none;
-  }
-}
-
-.header-menu-mobile {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 1rem;
-}
-
-.header-menu-desktop {
-  display: none;
-  grid-gap: 1rem;
-  @media (min-width: 45em) {
-    display: flex;
-    grid-gap: 1rem;
-    margin-left: 3rem;
-  }
-}
-
+/* Ensuring all links within the header are white and visible */
+.header a,
 .header-menu-item {
-  cursor: pointer;
+  color: #fff; /* White text for links */
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Hover effect for links to slightly change color for user feedback */
+.header a:hover,
+.header-menu-item:hover {
+  color: #e0e0e0; /* Light grey on hover to indicate interactivity */
+}
+
+/* Additional styling for specific elements if needed */
+.header strong {
+  font-family: 'Bodoni Moda', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
 }
 
 .header-ctas {
@@ -298,8 +303,6 @@ aside li {
   align-items: center;
   gap: 1rem;
 }
-
-
 
 /*
 * --------------------------------------------------
